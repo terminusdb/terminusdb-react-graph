@@ -23,7 +23,7 @@
   "scripts": {
     "build-es6": "rimraf es6 && cross-env NODE_ENV=es6 babel ./src -d es6 --extensions '.js'",
     "build": "npm run build-es6 && webpack --mode production",
-    "demo": "webpack-dev-server --progress --port 3005 --host localhost --content-base demo --inline --config demo/webpack.config.js",
+    "start": "webpack-dev-server --progress --port 3008 --host localhost --content-base demo --inline --config demo/webpack.config.js",
     "test": "cross-env NODE_ENV=test karma start test/karma.conf.js",
     "lint": "eslint src",
     "autofix": "eslint src --fix"

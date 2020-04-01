@@ -26,6 +26,11 @@ const App= (props) =>{
 
   
    let result;
+
+   const woqlGraphConfig= TerminusClient.View.graph();
+   woqlGraphConfig.height(1000).width(1000) 
+
+   woqlGraphConfig.node("Element").v("scm:order_line_product").size(30)
    
    useEffect(() => {
       const dbClient = new TerminusClient.WOQLClient();       
@@ -34,8 +39,7 @@ const App= (props) =>{
 
          query.execute(dbClient).then((response)=>{
          result = new TerminusClient.WOQLResult(response,query);
-         const woqlGraphConfig= TerminusClient.View.graph();
-
+         
          let viewer = woqlGraphConfig.create(null);
          
          viewer.setResult(result);

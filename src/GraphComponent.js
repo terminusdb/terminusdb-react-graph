@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import * as d3 from 'd3';
 //import {setConfigOptions} from './utils'
 
 import GraphResultsViewer from './GraphResultsViewer'

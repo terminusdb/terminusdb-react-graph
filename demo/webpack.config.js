@@ -16,7 +16,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
-    new Dotenv()
+    new Dotenv({path: path.resolve(__dirname, './.env'),})
   ],
   resolve: {
     alias: {
