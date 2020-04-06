@@ -1,14 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 //import {setConfigOptions} from './utils'
-
+//import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import GraphResultsViewer from './GraphResultsViewer'
 
 const GraphComponent = (props) => {
-
-	const graphResult=new GraphResultsViewer(props.config,props.dataProvider);
-
-	const d3Container = useRef(null);
-
+  const d3Container = useRef(null);
+  const graphResult=new GraphResultsViewer(props.config,props.dataProvider);
 	useEffect(() => {
             if (props.dataProvider && d3Container.current) {
                 graphResult.load(d3Container.current,true);          
@@ -22,7 +19,7 @@ const GraphComponent = (props) => {
           if the variables are valid, but we do not have to compare old props
           to next props to decide whether to rerender.
         */
-        [props.data, d3Container.current])
+        [props.dataProvider, d3Container.current])
 
   const text="\uf128"
    
