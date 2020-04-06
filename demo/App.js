@@ -6,6 +6,29 @@ const App= (props) =>{
 
    const [reload,setReload] = useState(false)
    const [myviewer, setConfig] = useState(undefined);
+   const WOQL = TerminusClient.WOQL;
+
+   let query=WOQL.and(
+            WOQL.quad("v:Element","type","Class","schema"),
+            WOQL.opt().quad("v:Element","label","v:Label","schema"),
+            WOQL.opt().quad("v:Element","comment","v:Comment","schema"),
+            WOQL.opt().quad("v:Element","tcs:tag","v:Abstract","schema")
+        );
+
+   const reloadGraph=()=>{
+      query=WOQL.and(
+            WOQL.or(
+                WOQL.quad("v:Property","type","DatatypeProperty","schema"),
+                WOQL.quad("v:Property","type","ObjectProperty","schema")
+            ),
+            WOQL.opt().quad("v:Property","range","v:Range","schema"),
+            WOQL.opt().quad("v:Property","type","v:Type","schema"),
+            WOQL.opt().quad("v:Property","label","v:Label","schema"),
+            WOQL.opt().quad("v:Property","comment","v:Comment","schema"),
+            WOQL.opt().quad("v:Property","domain","v:Domain","schema")
+        )
+      setReload(Date.now())
+   }
 
 	const server=process.env.API_URL;
    const key=process.env.API_KEY
@@ -13,8 +36,14 @@ const App= (props) =>{
 
    console.log("server",server)
 
-   const WOQL = TerminusClient.WOQL;
-   const query=WOQL.and(
+  
+   
+
+
+
+
+
+   /*const query=WOQL.and(
        WOQL.quad("v:Element","type","v:Type","schema"),
        WOQL.opt().quad("v:Element","tcs:tag","v:Abstract","schema"),
        WOQL.opt().quad("v:Element","label","v:Label","schema"),
@@ -22,15 +51,15 @@ const App= (props) =>{
        WOQL.opt().quad("v:Element","subClassOf","v:Parent","schema"),
        WOQL.opt().quad("v:Element","domain","v:Domain","schema"),
        WOQL.opt().quad("v:Element","range","v:Range","schema")
-   )
+   )*/
 
   
    let result;
 
    const woqlGraphConfig= TerminusClient.View.graph();
-   woqlGraphConfig.height(1000).width(1000) 
+   woqlGraphConfig.height(500).width(500) 
 
-   woqlGraphConfig.node("Element").v("scm:order_line_product").size(30)
+  // woqlGraphConfig.node("Element").v("scm:order_line_product").size(30)
    
    useEffect(() => {
       const dbClient = new TerminusClient.WOQLClient();       
@@ -64,9 +93,10 @@ const App= (props) =>{
 				      {"v:Date": 'Page G', "v:Quantity": 3490, pv: 4300, amt: 2100}
 				]
 
-	return (<div>
-				GRAPH COMPONENT
+	return (<div> <button onClick={reloadGraph}>Reload</button>
+				GRAPH COMPONENT {reload}
 				{myviewer && <GraphComponent config={myviewer.config} dataProvider={myviewer}/>}
+       
 			</div>)
 
 }
