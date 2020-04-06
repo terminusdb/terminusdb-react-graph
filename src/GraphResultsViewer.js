@@ -26,6 +26,9 @@ function GraphResultsViewer(config,result) {
  */
 GraphResultsViewer.prototype.load = function(domElement,show) {
 	//this.initD3(this.d3DOM);
+	/*
+	* empty the dom object
+	*/
 	this.initD3(domElement)
 	this.loadNewData();
 	this.updateGraph();
@@ -213,7 +216,11 @@ GraphResultsViewer.prototype.setHeight = function() {
 
 GraphResultsViewer.prototype.initD3 = function(jqid) {
 	var self = this;
-
+	try{
+		d3.select("svg").remove();
+	}catch(err){
+		console.log('no svg') 
+	}
 	/********************* Seed the data **************************/
 	this.svg = d3.select(jqid).append("svg")
 		.attr("width", this.width)
