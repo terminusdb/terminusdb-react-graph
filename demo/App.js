@@ -57,7 +57,7 @@ const App= (props) =>{
    let result;
 
    const woqlGraphConfig= TerminusClient.View.graph();
-   woqlGraphConfig.height(500).width(500)
+   woqlGraphConfig.height(500).width(800)
 
   // woqlGraphConfig.node("Element").v("scm:order_line_product").size(30)
 
@@ -83,17 +83,9 @@ const App= (props) =>{
    },[reload])
 
 
-    const dataP=[
-				      {"v:Date": 'Page A', "v:Quantity": 4000, pv: 2400, amt: 2400},
-				      {"v:Date": 'Page B', "v:Quantity": 3000, pv: 1398, amt: 2210},
-				      {"v:Date": 'Page C', "v:Quantity": 2000, pv: 9800, amt: 2290},
-				      {"v:Date": 'Page D', "v:Quantity": 2780, pv: 3908, amt: 2000},
-				      {"v:Date": 'Page E', "v:Quantity": 1890, pv: 4800, amt: 2181},
-				      {"v:Date": 'Page F', "v:Quantity": 2390, pv: 3800, amt: 2500},
-				      {"v:Date": 'Page G', "v:Quantity": 3490, pv: 4300, amt: 2100}
-				]
+  if(myviewer)console.log("____CONFIG____", myviewer.config);
 
-	return (<div> <button onClick={reloadGraph}>Reload</button>
+	return (<div style={{border:'1px solid'}}> <button onClick={reloadGraph}>Reload</button>
 				GRAPH COMPONENT {reload}
 				{myviewer && <GraphComponent
                     config={myviewer.config}

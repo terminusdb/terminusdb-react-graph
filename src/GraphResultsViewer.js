@@ -217,7 +217,10 @@ GraphResultsViewer.prototype.setHeight = function() {
 GraphResultsViewer.prototype.initD3 = function(jqid) {
 	var self = this;
 	try{
+<<<<<<< HEAD
 		//d3.selectAll("svg").remove();
+=======
+>>>>>>> 3169ffb1a53e384feddc989d3a08de5d34448f16
 		d3.select(jqid).selectAll("svg").remove();
 		//d3.select(".d3-component").select("svg").remove();
 	}catch(err){
@@ -575,9 +578,9 @@ GraphResultsViewer.prototype.setConfigOptions = function(config) {
 			icon: {
 				weight: (config && config.node && config.node.icon && config.node.icon.weight ? config.node.icon.weight : 900),
 				color: (config && config.node && config.node.icon && config.node.icon.color ? config.node.icon.color : [255, 255, 255]),//[0,0,255]),
-				unicode: (config && config.node && config.node.icon && config.node.icon.unicode ? config.node.icon.unicode : "\uf238"),////"\uf4fb"),
+				unicode: (config && config.node && config.node.icon && config.node.icon.unicode ? config.node.icon.unicode : "\uf007"),///"\uf238"),////"\uf4fb"),
 				size: (config && config.node && config.node.icon && config.node.icon.size ? config.node.icon.size : 10),
-				faclass: (config && config.node && config.node.icon && config.node.icon.faclass ? config.node.icon.faclass : "fas fa-user-astronaut")
+				faclass: (config && config.node && config.node.icon && config.node.icon.faclass ? config.node.icon.faclass : "fas fa-user")
 			},
 			text: {
 				color: (config && config.node && config.node.text && config.node.text.color ? config.node.text.color : [0,0,0]),
