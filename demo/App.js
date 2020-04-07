@@ -36,8 +36,8 @@ const App= (props) =>{
 
    console.log("server",server)
 
-  
-   
+
+
 
 
 
@@ -53,36 +53,36 @@ const App= (props) =>{
        WOQL.opt().quad("v:Element","range","v:Range","schema")
    )*/
 
-  
+
    let result;
 
    const woqlGraphConfig= TerminusClient.View.graph();
-   woqlGraphConfig.height(500).width(500) 
+   woqlGraphConfig.height(500).width(500)
 
   // woqlGraphConfig.node("Element").v("scm:order_line_product").size(30)
-   
+
    useEffect(() => {
-      const dbClient = new TerminusClient.WOQLClient();       
+      const dbClient = new TerminusClient.WOQLClient();
          dbClient.connect(server, key).then(function(response){
          dbClient.connectionConfig.setDB(db);
-
+         console.log('query', query)
          query.execute(dbClient).then((response)=>{
          result = new TerminusClient.WOQLResult(response,query);
-         
+
          let viewer = woqlGraphConfig.create(null);
-         
+
          viewer.setResult(result);
          setConfig(viewer)
          }).catch((err)=>{
             console.log(err)
          })
-         
+
       }).catch((err)=>{
          console.log(err)
       })
    },[reload])
 
-   
+
     const dataP=[
 				      {"v:Date": 'Page A', "v:Quantity": 4000, pv: 2400, amt: 2400},
 				      {"v:Date": 'Page B', "v:Quantity": 3000, pv: 1398, amt: 2210},
@@ -95,8 +95,10 @@ const App= (props) =>{
 
 	return (<div> <button onClick={reloadGraph}>Reload</button>
 				GRAPH COMPONENT {reload}
-				{myviewer && <GraphComponent config={myviewer.config} dataProvider={myviewer}/>}
-       
+				{myviewer && <GraphComponent
+                    config={myviewer.config}
+                    dataProvider={myviewer}/>}
+
 			</div>)
 
 }

@@ -8,7 +8,7 @@ const GraphComponent = (props) => {
   const graphResult=new GraphResultsViewer(props.config,props.dataProvider);
 	useEffect(() => {
             if (props.dataProvider && d3Container.current) {
-                graphResult.load(d3Container.current,true);          
+                graphResult.load(d3Container.current,true);
             }
         },
 
@@ -22,7 +22,7 @@ const GraphComponent = (props) => {
         [props.dataProvider, d3Container.current])
 
   const text="\uf128"
-   
+
  return (
         <div>
           <i class="fa fa-child" ></i>
