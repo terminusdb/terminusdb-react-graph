@@ -41,6 +41,10 @@ function GraphResultsViewer(config, result) {
 
 GraphResultsViewer.prototype.load = function (domElement, show) {
   //this.initD3(this.d3DOM);
+
+  /*
+  * empty the dom object
+  */
   this.initD3(domElement);
   this.loadNewData();
   this.updateGraph();
@@ -246,7 +250,14 @@ GraphResultsViewer.prototype.setHeight = function () {
 
 GraphResultsViewer.prototype.initD3 = function (jqid) {
   var self = this;
+
+  try {
+    d3.select(jqid).selectAll("svg").remove();
+  } catch (err) {
+    console.log('no svg');
+  }
   /********************* Seed the data **************************/
+
 
   this.svg = d3.select(jqid).append("svg").attr("width", this.width).attr("height", this.height);
 
@@ -575,10 +586,10 @@ GraphResultsViewer.prototype.setConfigOptions = function (config) {
         weight: config && config.node && config.node.icon && config.node.icon.weight ? config.node.icon.weight : 900,
         color: config && config.node && config.node.icon && config.node.icon.color ? config.node.icon.color : [255, 255, 255],
         //[0,0,255]),
-        unicode: config && config.node && config.node.icon && config.node.icon.unicode ? config.node.icon.unicode : "\uF238",
-        ////"\uf4fb"),
+        unicode: config && config.node && config.node.icon && config.node.icon.unicode ? config.node.icon.unicode : "\uF007",
+        ///"\uf238"),////"\uf4fb"),
         size: config && config.node && config.node.icon && config.node.icon.size ? config.node.icon.size : 10,
-        faclass: config && config.node && config.node.icon && config.node.icon.faclass ? config.node.icon.faclass : "fas fa-user-astronaut"
+        faclass: config && config.node && config.node.icon && config.node.icon.faclass ? config.node.icon.faclass : "fas fa-user"
       },
       text: {
         color: config && config.node && config.node.text && config.node.text.color ? config.node.text.color : [0, 0, 0],
