@@ -217,12 +217,7 @@ GraphResultsViewer.prototype.setHeight = function() {
 GraphResultsViewer.prototype.initD3 = function(jqid) {
 	var self = this;
 	try{
-<<<<<<< HEAD
-		//d3.selectAll("svg").remove();
-=======
->>>>>>> 3169ffb1a53e384feddc989d3a08de5d34448f16
 		d3.select(jqid).selectAll("svg").remove();
-		//d3.select(".d3-component").select("svg").remove();
 	}catch(err){
 		console.log('no svg')
 	}
