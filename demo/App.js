@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import {GraphComponent} from '@terminusdb/terminus-react-graph';
+import {GraphComponent} from '@terminusdb/terminusdb-react-graph';
 import TerminusClient from '@terminusdb/terminus-client'
 
 const App= (props) =>{

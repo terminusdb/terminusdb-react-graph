@@ -1,5 +1,5 @@
 {
-  "name": "@terminusdb/terminus-react-graph",
+  "name": "@terminusdb/terminusdb-react-graph",
   "version": "0.0.1",
   "description": "Chart for terminusdb",
   "main": "src/index",
