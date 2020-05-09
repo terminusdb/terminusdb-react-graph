@@ -45,10 +45,10 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'terminus-graph.min.js',
-        sourceMapFilename: 'terminus-graph.min.js.map',
+        filename: 'terminusdb-graph.min.js',
+        sourceMapFilename: 'terminusdb-graph.min.js.map',
         libraryTarget: 'umd',
-        library: 'TerminusGraph',
+        library: 'TerminusDBGraph',
     },
     plugins:[
       new Dotenv(),
