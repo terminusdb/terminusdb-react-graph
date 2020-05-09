@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
-    "@terminusdb/terminus-client": "file:../terminus-client",
+    "@terminusdb/terminus-client": "terminusdb/terminusdb-client#v2.0",
     "classnames": "^2.2.5",
     "core-js": "^3.4.2",
     "d3": "^5.15.0",
