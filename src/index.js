@@ -1,2 +1,2 @@
 import "./css/main.css"
-export WoqlGraph from './GraphComponent';
+export {WoqlGraph} from './GraphComponent';
