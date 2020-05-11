@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react';
-import {GraphComponent} from '@terminusdb/terminus-react-graph';
-import TerminusClient from '@terminusdb/terminus-client'
+
+import {GraphComponent} from '@terminusdb/terminusdb-react-graph';
+import TerminusClient from '@terminusdb/terminusdb-client'
+
 const App= (props) =>{
 
    const [reload,setReload] = useState(false)

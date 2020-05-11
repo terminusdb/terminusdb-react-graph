@@ -3,15 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "GraphComponent", {
+Object.defineProperty(exports, "WoqlGraph", {
   enumerable: true,
   get: function get() {
-    return _GraphComponent2["default"];
+    return _GraphComponent.WoqlGraph;
   }
 });
 
-require("./css/main.css");
-
-var _GraphComponent2 = _interopRequireDefault(require("./GraphComponent"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _GraphComponent = require("./GraphComponent");

@@ -218,7 +218,6 @@ GraphResultsViewer.prototype.initD3 = function(jqid) {
 	var self = this;
 	try{
 		d3.select(jqid).selectAll("svg").remove();
-		//d3.select(".d3-component").select("svg").remove();
 	}catch(err){
 		console.log('no svg')
 	}

@@ -20,7 +20,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      "@terminusdb/terminus-react-graph": path.join(__dirname, '..', 'src/index.js'),
+      "@terminusdb/terminusdb-react-graph": path.join(__dirname, '..', 'src/index.js'),
     },
     extensions: ['.js', '.jsx', '.json'],
   },
