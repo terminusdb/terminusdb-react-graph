@@ -1,7 +1,17 @@
 language: node_js
 node_js:
-  - 12
+  - stable
 
-script:
-  - npm i
-  - npm run build
+stages:
+  - build
+  - name: deploy_dev
+    if: branch = master # TODO: A dev branch is probably better
+
+jobs:
+  include:
+    - stage: build
+
+    - stage: deploy_dev
+      script:
+        - gem install package_cloud
+        - bash .ci/publish_dev.sh
