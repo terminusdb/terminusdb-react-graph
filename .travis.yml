@@ -13,7 +13,6 @@ jobs:
 
     - stage: deploy_dev
       script:
-        - gem install package_cloud
         - bash .ci/publish_dev.sh
 
 deploy:
