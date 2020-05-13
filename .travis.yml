@@ -15,3 +15,15 @@ jobs:
       script:
         - gem install package_cloud
         - bash .ci/publish_dev.sh
+
+deploy:
+  - provider: npm
+    registry: "https://registry.npmjs.org/"
+    skip_cleanup: true
+    access: public
+    email: "robin@datachemist.com"
+    api_key: $NPM_TOKEN
+    keep_history: true
+    auth_method: "authToken"
+    on:
+      tags: true
