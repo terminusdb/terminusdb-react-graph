@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import GraphResultsViewer from './GraphResultsViewer'
 
-export const GraphComponent = (props) => {
+export const WOQLGraph = (props) => {
   const d3Container = useRef(null);
   const graphResult=new GraphResultsViewer(props.config,props.dataProvider);
   const height = props.config && props.config.gheight ||  300;

@@ -1,5 +1,5 @@
-export {GraphComponent} from './GraphComponent';
+//export {GraphComponent} from './GraphComponent';
 
 //import "./css/main.css"
-//export {WoqlGraph} from './GraphComponent';
+export {WOQLGraph} from './GraphComponent';
 

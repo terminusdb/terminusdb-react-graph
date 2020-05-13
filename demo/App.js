@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 
-import {GraphComponent} from '@terminusdb/terminusdb-react-graph';
+import {WOQLGraph} from '@terminusdb/terminusdb-react-graph';
 import TerminusClient from '@terminusdb/terminusdb-client'
 
 const App= (props) =>{
@@ -64,7 +64,7 @@ const App= (props) =>{
 
    useEffect(() => {
       const dbClient = new TerminusClient.WOQLClient();
-         dbClient.connect(server, key).then(function(response){
+         dbClient.connect({server:server, key:key}).then(function(response){
          dbClient.connectionConfig.setDB(db);
          console.log('query', query)
          query.execute(dbClient).then((response)=>{
@@ -88,7 +88,7 @@ const App= (props) =>{
 
 	return (<div style={{border:'1px solid'}}> <button onClick={reloadGraph}>Reload</button>
 				GRAPH COMPONENT {reload}
-				{myviewer && <GraphComponent
+				{myviewer && <WOQLGraph
                     config={myviewer.config}
                     dataProvider={myviewer}/>}
 
