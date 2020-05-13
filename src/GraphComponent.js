@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import GraphResultsViewer from './GraphResultsViewer'
 
-const GraphComponent = (props) => {
+export const GraphComponent = (props) => {
   const d3Container = useRef(null);
   const graphResult=new GraphResultsViewer(props.config,props.dataProvider);
   const height = props.config && props.config.gheight ||  300;
@@ -24,4 +24,3 @@ const GraphComponent = (props) => {
   return (<div className="d3-component" width={width} height={height} ref={d3Container}/>);
 }
 
-export default GraphComponent;
