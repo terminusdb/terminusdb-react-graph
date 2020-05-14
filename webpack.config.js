@@ -1,8 +1,6 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-console.log("____WEB_PACK__");
-module.exports = {
+module.exports = (env, argv) => ({
     entry: './src/index.js',
     module: {
         rules: [
@@ -28,11 +26,11 @@ module.exports = {
               options: {
                 name: '[name].[ext]',
                 outputPath: (url, resourcePath, context) => {
-                  console.log("___MODE__",argv.mode)
+                  //console.log("___MODE__",argv.mode)
                   if(argv.mode === 'development') {
                     const relativePath = path.relative(context, resourcePath);
 
-                     console.log("___CONTEXT__",context,resourcePath,relativePath)
+                     //console.log("___CONTEXT__",context,resourcePath,relativePath)
 
                     return `/${relativePath}`;
                   }
@@ -43,22 +41,16 @@ module.exports = {
         ]}
       ]
     },
+    devtool: argv.mode === 'production' ? false : '#inline-source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'terminusdb-graph.min.js',
-        sourceMapFilename: 'terminusdb-graph.min.js.map',
+        filename: 'terminusdb-react-graph.min.js',
+        sourceMapFilename: 'terminusdb-react-graph.min.js.map',
         libraryTarget: 'umd',
         library: 'TerminusDBGraph',
     },
     plugins:[
       new Dotenv(),
-      new CopyWebpackPlugin([
-            {
-                //Wildcard is specified hence will copy only css files
-                from: 'src/css/main.css', //Will resolve to RepoDir/src/css and all *.css files from this directory
-                to: '../es6/css/main.css'//Copies all matched css files from above dest to es6 folder
-            }
-        ])
     ],
     externals: {
       react: {
@@ -80,4 +72,4 @@ module.exports = {
         amd: 'prop-types',
       }
   },
-};
+});
