@@ -10,9 +10,12 @@ stages:
 jobs:
   include:
     - stage: build
+      script:
+        - npm run build
 
     - stage: deploy_dev
       script:
+        - npm run build
         - bash .ci/publish_dev.sh
 
 deploy:
