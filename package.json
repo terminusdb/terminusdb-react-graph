@@ -10,7 +10,8 @@
   ],
   "files": [
     "*.md",
-    "src"
+    "src",
+    "es6"
   ],
   "keywords": [
     "react",
