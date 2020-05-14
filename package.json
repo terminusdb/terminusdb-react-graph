@@ -1,10 +1,10 @@
 {
   "name": "@terminusdb/terminusdb-react-graph",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Chart for terminusdb",
-  "main": "src/index",
-  "module": "src/index",
-  "jsnext:main": "src/index",
+  "main": "src/index.js",
+  "module": "es6/index.js",
+  "jsnext:main": "es6/index.js",
   "sideEffects": [
     "./*/index.js"
   ],
@@ -20,7 +20,8 @@
     "terminusdb"
   ],
   "scripts": {
-    "build": "webpack --mode production",
+    "build-es6": "rimraf es6 && cross-env NODE_ENV=es6 babel ./src -d es6 --extensions '.js'",
+    "build": "npm run build-es6 && webpack --mode production",
     "start": "webpack-dev-server --progress --port 3008 --host localhost --content-base demo --inline --config demo/webpack.config.js",
     "test": "echo 'TODO: There should be tests'",
     "lint": "eslint src",
