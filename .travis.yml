@@ -5,7 +5,7 @@ node_js:
 stages:
   - build
   - name: deploy_dev
-    if: branch = master # TODO: A dev branch is probably better
+    if: branch = dev
 
 jobs:
   include:
