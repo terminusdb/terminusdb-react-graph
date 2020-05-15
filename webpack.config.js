@@ -46,7 +46,6 @@ module.exports = (env, argv) => ({
         path: path.resolve(__dirname, 'dist'),
         filename: 'terminusdb-react-graph.min.js',
         sourceMapFilename: 'terminusdb-react-graph.min.js.map',
-        libraryTarget: 'umd',
         library: 'TerminusDBGraph',
     },
     plugins:[
@@ -72,4 +71,5 @@ module.exports = (env, argv) => ({
         amd: 'prop-types',
       }
   },
+    target: 'node'
 });
