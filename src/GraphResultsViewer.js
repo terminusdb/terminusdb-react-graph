@@ -18,7 +18,7 @@ function GraphResultsViewer(config,result) {
 	// Var for selecting and deselecting elements
 	this.selected_id;
 	this.setConfigOptions(config);
-	this.result=result
+    this.result=result
 }
 
 /*
@@ -29,7 +29,7 @@ GraphResultsViewer.prototype.load = function(domElement,show) {
 	/*
 	* empty the dom object
 	*/
-	this.initD3(domElement)
+    this.initD3(domElement)
 	this.loadNewData();
 	this.updateGraph();
 	if(show){
@@ -52,7 +52,7 @@ GraphResultsViewer.prototype.setData = function(dqr, show){
 }
 
 GraphResultsViewer.prototype.loadNewData = function(){
-	this.nodes = this.result.getNodes().slice();//jQuery.extend(true, [], this.result.getNodes());
+    this.nodes = this.result.getNodes().slice();//jQuery.extend(true, [], this.result.getNodes());
 	for(var i = 0 ; i<this.nodes.length; i++){
 		this.loadedNodes[this.nodes[i].id] = this.nodes[i];
 	}

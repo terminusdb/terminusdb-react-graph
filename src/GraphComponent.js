@@ -4,8 +4,8 @@ import GraphResultsViewer from './GraphResultsViewer'
 export const WOQLGraph = (props) => {
   const d3Container = useRef(null);
   const graphResult=new GraphResultsViewer(props.config, props.dataProvider);
-  const height = props.config && props.config.gheight ||  300;
-  const width = props.config && props.config.gwidth ||  400;
+  const height = props.config && props.config.gheight ||  800;
+  const width = props.config && props.config.gwidth ||  800;
 	useEffect(() => {
             if (props.dataProvider && d3Container.current) {
                 graphResult.load(d3Container.current,true);
