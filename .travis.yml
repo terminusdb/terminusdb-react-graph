@@ -21,7 +21,7 @@ jobs:
         - bash .ci/publish_dev.sh
 
 
-    - stage: deploy_dev
+    - stage: deploy_canary
       script:
         - npm run build
         - bash .ci/publish_canary.sh
