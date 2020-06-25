@@ -6,6 +6,8 @@ stages:
   - build
   - name: deploy_dev
     if: branch = dev
+  - name: deploy_canary
+    if: branch = canary
 
 jobs:
   include:
@@ -18,6 +20,11 @@ jobs:
         - npm run build
         - bash .ci/publish_dev.sh
 
+
+    - stage: deploy_dev
+      script:
+        - npm run build
+        - bash .ci/publish_canary.sh
 deploy:
   - provider: npm
     registry: "https://registry.npmjs.org/"
