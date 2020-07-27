@@ -6,6 +6,8 @@ stages:
   - build
   - name: deploy_dev
     if: branch = dev
+  - name: deploy_rc
+    if: branch = rc
   - name: deploy_canary
     if: branch = canary
 
@@ -20,6 +22,10 @@ jobs:
         - npm run build
         - bash .ci/publish_dev.sh
 
+    - stage: deploy_rc
+      script:
+        - npm run build
+        - bash .ci/publish_rc.sh
 
     - stage: deploy_canary
       script:
